@@ -16,7 +16,7 @@ for i in range(5+1):
 
 class ODBCtoCSV(object):
 
-    def __init__(self, connect='Driver={SQL Server};Server=IE11WIN7\SQLEXPRESS;Database=OPC;UID=miguel;PWD=260189'):
+    def __init__(self, connect='Driver={SQL Server};Server=IE11WIN7\SQLEXPRESS;Database=OPC;UID=miguel;PWD=*****'):
         self.connect_string = connect
 
     def dump(self, sql, filename, include_headers=True):
@@ -41,7 +41,7 @@ def is_open(file_name):
     raise NameError
 
 def quality():
-    sql_con = pypyodbc.connect('Driver={SQL Server};Server=IE11WIN7\SQLEXPRESS;Database=OPC;UID=miguel;PWD=260189')
+    sql_con = pypyodbc.connect('Driver={SQL Server};Server=IE11WIN7\SQLEXPRESS;Database=OPC;UID=miguel;PWD=******')
     cur = sql_con.cursor()
     cur.execute("SELECT DATATIME,[Quality] FROM dbo.DATOS_PLC$ WHERE [DATATIME]=(SELECT MAX([DATATIME]) FROM dbo.DATOS_PLC$)")
     resultado = cur.fetchone()
